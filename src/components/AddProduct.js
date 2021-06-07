@@ -18,7 +18,6 @@ class AddProduct extends Component {
   add = (e) => {
     e.preventDefault();
     this.props.addProduct(this.state);
-    // console.log(this.props);
     this.props.history.push("/");
   };
 

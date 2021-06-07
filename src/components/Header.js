@@ -2,6 +2,27 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class Header extends Component {
+  checkUserLogin = () => {
+    const r = localStorage.getItem("userToken");
+    if (r === "") {
+      return (
+        <li className="nav-item">
+          <Link className="nav-link" to="/login">
+            Login
+          </Link>
+        </li>
+      );
+    } else {
+      // localStorage.setItem("userToken", "");
+      return (
+        <li className="nav-item">
+          <Link className="nav-link" onClick={this.props.userLogOut}>
+            Log out
+          </Link>
+        </li>
+      );
+    }
+  };
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -9,6 +30,7 @@ class Header extends Component {
           <Link className="navbar-brand" to="/">
             Navbar
           </Link>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -23,57 +45,20 @@ class Header extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/addproduct">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/addproduct"
+                >
                   Add Product
                 </Link>
               </li>
-              <li className="nav-item dropdown">
-                <Link
-                  className="nav-link dropdown-toggle"
-                  to="/"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
+              {this.checkUserLogin()}
+              {/* <li className="nav-item">
+                <Link className="nav-link" to="/login">
+                  Login
                 </Link>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <Link className="dropdown-item" to="/">
-                      Action
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/">
-                      Another action
-                    </Link>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/">
-                      Something else here
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link disabled"
-                  to="/"
-                  tabindex="-1"
-                  aria-disabled="true"
-                >
-                  Disabled
-                </Link>
-              </li>
+              </li> */}
             </ul>
             <form className="d-flex">
               <input

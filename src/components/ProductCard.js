@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 class ProductCard extends Component {
   render() {
-    // console.log(this.props.product);
     const { id, title, price, image } = this.props.product;
     return (
       <div className="box-list">

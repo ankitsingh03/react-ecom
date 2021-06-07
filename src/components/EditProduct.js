@@ -30,7 +30,6 @@ class EditProduct extends Component {
   };
 
   render() {
-    // console.log(this.props.location.state);
     return (
       <form className="container" onSubmit={this.add}>
         <label className="form-lable">Title</label>
