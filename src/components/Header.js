@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 class Header extends Component {
   checkUserLogin = () => {
-    const r = localStorage.getItem("userToken");
-    if (r === "") {
+    const token = localStorage.getItem("userToken");
+    if (token === "") {
       return (
         <li className="nav-item">
           <Link className="nav-link" to="/login">

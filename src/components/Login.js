@@ -9,9 +9,9 @@ class Login extends Component {
     });
   };
 
-  add = (e) => {
+  add = async (e) => {
     e.preventDefault();
-    this.props.userLogin(this.state);
+    await this.props.userLogin(this.state);
     this.props.history.push("/");
   };
 
