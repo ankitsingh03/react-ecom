@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class ProductDetail extends Component {
-  deleteproduct = (id) => {
+  deleteproduct = async (id) => {
+    console.log()
     let confirm = window.confirm("Do you really want to delete this item?");
     if (confirm) {
-      this.props.onDelete(id);
+      await this.props.onDelete(id);
       this.props.history.push("/");
     }
   };

@@ -112,15 +112,18 @@ class App extends React.Component {
       });
   };
 
-  deleteProduct = async (id) => {
-    await fetch(`https://fakestoreapi.com/products/${id}`, {
+  deleteProduct = (id) => {
+    console.log(id) 
+    fetch(`https://fakestoreapi.com/products/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((json) => console.log(json));
     // this return full product info but the problem is not appliable for new created product
     // use individual process for delete
+    console.log(this.state.products)
     const products = this.state.products.filter((product) => product.id !== id);
+    console.log(products)
     this.setState({ products });
   };
 

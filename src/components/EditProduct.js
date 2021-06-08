@@ -23,9 +23,9 @@ class EditProduct extends Component {
     });
   };
 
-  add = (e) => {
+  add = async (e) => {
     e.preventDefault();
-    this.props.updateProduct(this.state);
+    await this.props.updateProduct(this.state);
     this.props.history.push("/");
   };
 
